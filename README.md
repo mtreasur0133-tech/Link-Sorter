@@ -1,2 +1,2 @@
 # Link-Sorter
-A useful Html application that can be used to sort links by subdomain and by whether they are blocked or not
+A useful Html application that can be used to sort links by subdomain and by whether they are blocked or not has other features but im lazy so go check it out ig.
