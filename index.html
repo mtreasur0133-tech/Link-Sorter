@@ -17,35 +17,48 @@
   button { padding: 9px 20px; border: none; border-radius: 8px; cursor: pointer; font-size: 0.9rem; font-weight: 600; transition: opacity 0.2s, transform 0.1s; }
   button:hover { opacity: 0.85; }
   button:active { transform: scale(0.97); }
-  #sortBtn       { background: linear-gradient(90deg, #7c3aed, #2563eb); color: #fff; }
-  #clearBtn      { background: #2d3148; color: #94a3b8; }
-  #copyAllBtn    { background: #0f4c75; color: #7dd3fc; }
+  #sortBtn        { background: linear-gradient(90deg, #7c3aed, #2563eb); color: #fff; }
+  #clearBtn       { background: #2d3148; color: #94a3b8; }
+  #copyAllBtn     { background: #0f4c75; color: #7dd3fc; }
   #rulesToggleBtn { background: #1e2130; border: 1px solid #2d3148; color: #94a3b8; }
 
+  /* Rules panel */
   .rules-panel { background: #1e2130; border: 1px solid #2d3148; border-radius: 12px; padding: 20px; margin-bottom: 16px; display: none; }
   .rules-panel h3 { font-size: 1rem; color: #e2e8f0; margin-bottom: 4px; }
   .rules-panel > p { font-size: 0.8rem; color: #64748b; margin-bottom: 14px; }
   .rules-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
   @media (max-width: 600px) { .rules-cols { grid-template-columns: 1fr; } }
   .rules-col h4 { font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; }
-  .rc-green h4  { color: #4ade80; }
-  .rc-yellow h4 { color: #fbbf24; }
-  .rc-red h4    { color: #f87171; }
+  .rc-green h4  { color: #4ade80; } .rc-yellow h4 { color: #fbbf24; } .rc-red h4 { color: #f87171; }
   .rules-col textarea { height: 150px; font-size: 0.78rem; font-family: monospace; }
   .rules-note { margin-top: 10px; font-size: 0.75rem; color: #475569; }
   .rules-note code { background: #0f1117; padding: 1px 5px; border-radius: 4px; color: #7dd3fc; }
 
+  /* Stats */
   .stats { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
   .stat-pill { background: #1e2130; border: 1px solid #2d3148; border-radius: 20px; padding: 5px 14px; font-size: 0.8rem; color: #94a3b8; }
   .stat-pill span { font-weight: 700; }
   .sp-purple { color: #a78bfa; } .sp-green { color: #4ade80; } .sp-yellow { color: #fbbf24; } .sp-red { color: #f87171; }
 
+  /* Copy-by-status bar */
+  .copy-status-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; align-items: center; }
+  .copy-status-label { color: #475569; font-size: 0.8rem; white-space: nowrap; }
+  .cpy-btn { font-size: 0.78rem; padding: 6px 14px; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; transition: opacity 0.2s, transform 0.1s; }
+  .cpy-btn:hover { opacity: 0.85; } .cpy-btn:active { transform: scale(0.97); }
+  .cpy-all      { background: #0f4c75;  color: #7dd3fc; }
+  .cpy-unblocked{ background: #14532d;  color: #4ade80; }
+  .cpy-likely   { background: #422006;  color: #fbbf24; }
+  .cpy-blocked  { background: #450a0a;  color: #f87171; }
+  .cpy-mixed    { background: #1e1e3a;  color: #818cf8; border: 1px solid #3730a3; }
+
+  /* Legend */
   .legend { display: flex; gap: 20px; flex-wrap: wrap; background: #1e2130; border: 1px solid #2d3148; border-radius: 10px; padding: 12px 16px; margin-bottom: 14px; font-size: 0.8rem; align-items: center; }
   .legend strong { color: #e2e8f0; }
   .legend-item { display: flex; align-items: center; gap: 6px; color: #94a3b8; }
   .leg-dot { width: 10px; height: 10px; border-radius: 50%; }
-  .leg-green { background: #22c55e; } .leg-yellow { background: #f59e0b; } .leg-red { background: #ef4444; }
+  .leg-green { background: #22c55e; } .leg-yellow { background: #f59e0b; } .leg-red { background: #ef4444; } .leg-indigo { background: #6366f1; }
 
+  /* Filter bar */
   .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 16px; }
   .filter-label { color: #475569; font-size: 0.8rem; }
   .filter-btn { padding: 5px 16px; border-radius: 20px; border: 2px solid #2d3148; font-size: 0.8rem; font-weight: 600; cursor: pointer; background: #1e2130; color: #475569; transition: all 0.15s; }
@@ -59,10 +72,12 @@
   .search-bar { width: 100%; background: #1e2130; border: 1px solid #2d3148; border-radius: 8px; color: #e2e8f0; padding: 10px 14px; font-size: 0.9rem; outline: none; margin-bottom: 20px; transition: border-color 0.2s; }
   .search-bar:focus { border-color: #7c3aed; }
 
+  /* Cards */
   .results { display: flex; flex-direction: column; gap: 16px; }
   .category-card { background: #1e2130; border: 1px solid #2d3148; border-radius: 12px; overflow: hidden; }
   .category-card[data-status="unblocked"] { border-color: #166534; }
   .category-card[data-status="blocked"]   { border-color: #7f1d1d; }
+  .category-card[data-status="mixed"]     { border-color: #3730a3; }
   .category-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; cursor: pointer; user-select: none; transition: background 0.15s; }
   .category-header:hover { background: #252840; }
   .cat-left { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
@@ -73,10 +88,20 @@
   .badge-unblocked { background: #14532d; color: #4ade80; }
   .badge-likely    { background: #422006; color: #fbbf24; }
   .badge-blocked   { background: #450a0a; color: #f87171; }
-  .badge-mixed     { background: #1e2130; border: 1px solid #475569; color: #94a3b8; }
-  .cat-right { display: flex; align-items: center; gap: 10px; }
-  .copy-cat-btn { background: #2d3148; color: #94a3b8; font-size: 0.75rem; padding: 4px 12px; border-radius: 6px; }
-  .chevron { color: #64748b; transition: transform 0.2s; font-size: 0.8rem; }
+  .badge-mixed     { background: #1e1e3a; border: 1px solid #3730a3; color: #818cf8; }
+  .cat-right { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+
+  /* Per-category copy buttons */
+  .cat-copy-group { display: flex; gap: 5px; flex-wrap: wrap; }
+  .cat-cpy { font-size: 0.68rem; padding: 3px 10px; border-radius: 6px; border: none; font-weight: 600; cursor: pointer; transition: opacity 0.15s; }
+  .cat-cpy:hover { opacity: 0.8; }
+  .cat-cpy-all      { background: #2d3148;  color: #94a3b8; }
+  .cat-cpy-unblocked{ background: #14532d;  color: #4ade80; }
+  .cat-cpy-likely   { background: #422006;  color: #fbbf24; }
+  .cat-cpy-blocked  { background: #450a0a;  color: #f87171; }
+  .cat-cpy-mixed    { background: #1e1e3a;  color: #818cf8; border: 1px solid #3730a3; }
+
+  .chevron { color: #64748b; transition: transform 0.2s; font-size: 0.8rem; margin-left: 4px; }
   .collapsed .chevron { transform: rotate(-90deg); }
 
   .link-list { border-top: 1px solid #2d3148; max-height: 400px; overflow-y: auto; }
@@ -88,14 +113,19 @@
   .link-status { font-size: 0.7rem; font-weight: 700; padding: 2px 7px; border-radius: 10px; white-space: nowrap; flex-shrink: 0; }
   .ls-unblocked { background: #14532d; color: #4ade80; }
   .ls-likely    { background: #422006; color: #fbbf24; }
-  .ls-mixed     { background: #1a1f3a; border: 1px solid #475569; color: #94a3b8; }
   .ls-blocked   { background: #450a0a; color: #f87171; }
+  .ls-mixed     { background: #1e1e3a; border: 1px solid #3730a3; color: #818cf8; }
   .link-text { flex: 1; font-size: 0.82rem; color: #7dd3fc; text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
   .link-text:hover { color: #38bdf8; text-decoration: underline; }
-  .copy-link-btn { background: transparent; color: #475569; font-size: 0.7rem; padding: 3px 8px; border-radius: 4px; border: 1px solid #2d3148; flex-shrink: 0; }
+  .copy-link-btn { background: transparent; color: #475569; font-size: 0.7rem; padding: 3px 8px; border-radius: 4px; border: 1px solid #2d3148; flex-shrink: 0; cursor: pointer; }
   .copy-link-btn:hover { color: #94a3b8; border-color: #475569; }
+
   .empty { text-align: center; color: #475569; padding: 60px 20px; font-size: 1rem; }
   .empty .big { font-size: 3rem; margin-bottom: 12px; }
+
+  /* Toast */
+  #toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(20px); background: #1e2130; border: 1px solid #2d3148; color: #e2e8f0; padding: 10px 22px; border-radius: 999px; font-size: 0.85rem; font-weight: 600; opacity: 0; transition: opacity 0.2s, transform 0.2s; pointer-events: none; z-index: 999; }
+  #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 </style>
 </head>
 <body>
@@ -108,14 +138,14 @@
   <div class="btn-row">
     <button id="sortBtn"        onclick="sortLinks()">⚡ Sort Links</button>
     <button id="clearBtn"       onclick="clearAll()">✕ Clear</button>
-    <button id="copyAllBtn"     onclick="copyAll()">📋 Copy All Sorted</button>
+    <button id="copyAllBtn"     onclick="copyByStatus('all')">📋 Copy All</button>
     <button id="rulesToggleBtn" onclick="toggleRules()">⚙️ Custom Rules</button>
   </div>
 </div>
 
 <div class="rules-panel" id="rulesPanel">
   <h3>⚙️ Custom Access Rules</h3>
-  <p>Add domains (one per line) to override the default detection. Custom rules take priority over built-in rules. Re-sort after making changes.</p>
+  <p>Add domains (one per line) to override built-in detection. Custom rules take priority. Re-sort after changes.</p>
   <div class="rules-cols">
     <div class="rules-col rc-green">
       <h4>✅ Always Unblocked</h4>
@@ -130,16 +160,26 @@
       <textarea id="customBlocked" placeholder="e.g.&#10;gamingsite.com&#10;socialapp.io"></textarea>
     </div>
   </div>
-  <p class="rules-note">💡 Entering <code>example.com</code> will match ALL subdomains like <code>sub.example.com</code></p>
+  <p class="rules-note">💡 Entering <code>example.com</code> matches ALL subdomains like <code>sub.example.com</code></p>
 </div>
 
-<div id="statsRow"  class="stats"  style="display:none"></div>
+<div id="statsRow" class="stats" style="display:none"></div>
+
+<!-- Copy by status bar -->
+<div id="copyStatusBar" class="copy-status-bar" style="display:none">
+  <span class="copy-status-label">📋 Copy by status:</span>
+  <button class="cpy-btn cpy-unblocked" onclick="copyByStatus('unblocked')">✅ Copy Unblocked</button>
+  <button class="cpy-btn cpy-likely"    onclick="copyByStatus('likely')">⚠️ Copy Possibly Blocked</button>
+  <button class="cpy-btn cpy-blocked"   onclick="copyByStatus('blocked')">🚫 Copy Blocked</button>
+  <button class="cpy-btn cpy-mixed"     onclick="copyByStatus('mixed')">🔀 Copy Mixed / CDN</button>
+</div>
+
 <div id="legendRow" class="legend" style="display:none">
   <strong>Access Status:</strong>
-  <div class="legend-item"><div class="leg-dot leg-green"></div>Likely Unblocked — known school-safe</div>
-  <div class="legend-item"><div class="leg-dot leg-yellow"></div>Possibly Blocked — unknown / unverified</div>
-  <div class="legend-item"><div class="leg-dot" style="background:#6366f1"></div>Mixed / CDN — depends on the specific link</div>
-  <div class="legend-item"><div class="leg-dot leg-red"></div>Likely Blocked — commonly restricted</div>
+  <div class="legend-item"><div class="leg-dot leg-green"></div>Likely Unblocked</div>
+  <div class="legend-item"><div class="leg-dot leg-yellow"></div>Possibly Blocked — unknown</div>
+  <div class="legend-item"><div class="leg-dot leg-red"></div>Likely Blocked</div>
+  <div class="legend-item"><div class="leg-dot leg-indigo"></div>Mixed / CDN — depends on link</div>
 </div>
 <div id="filterBar" class="filter-bar" style="display:none">
   <span class="filter-label">Show:</span>
@@ -147,7 +187,7 @@
   <button class="filter-btn f-unblocked inactive" onclick="setFilter('unblocked')">✅ Unblocked</button>
   <button class="filter-btn f-likely    inactive" onclick="setFilter('likely')">⚠️ Possibly Blocked</button>
   <button class="filter-btn f-blocked   inactive" onclick="setFilter('blocked')">🚫 Likely Blocked</button>
-  <button class="filter-btn f-mixed    inactive" onclick="setFilter('mixed')">🔀 Mixed / CDN</button>
+  <button class="filter-btn f-mixed     inactive" onclick="setFilter('mixed')">🔀 Mixed / CDN</button>
 </div>
 <input type="text" class="search-bar" id="searchBar" placeholder="🔍 Filter results..." oninput="applyFilters()" style="display:none">
 
@@ -155,8 +195,10 @@
   <div class="empty"><div class="big">🔗</div>Paste some links and hit Sort!</div>
 </div>
 
+<div id="toast"></div>
+
 <script>
-// ── Category definitions ──────────────────────────────────────────────────────
+// ── Categories ────────────────────────────────────────────────────────────────
 const CATEGORIES = [
   { id: 'codehs',        label: 'CodeHS',         icon: '💻', match: h => h.includes('codehs.com') || h.includes('codehs.me') },
   { id: 'github',        label: 'GitHub',         icon: '🐙', match: h => h.includes('github.com') || h.includes('github.io') },
@@ -194,189 +236,132 @@ const CATEGORIES = [
   { id: 'localhost',     label: 'Localhost',      icon: '🏠', match: h => h.includes('localhost') || h.includes('127.0.0.1') },
 ];
 
-// ── Built-in access rules ─────────────────────────────────────────────────────
+// ── Access rules ──────────────────────────────────────────────────────────────
 const BUILTIN_UNBLOCKED = [
-  // CodeHS
-  'codehs.com', 'codehs.me',
-  // Google suite
-  'google.com', 'docs.google.com', 'drive.google.com', 'classroom.google.com',
-  'forms.google.com', 'sheets.google.com', 'slides.google.com', 'mail.google.com',
-  'sites.google.com', 'accounts.google.com', 'jamboard.google.com', 'scholar.google.com',
-  // GitHub
-  'github.io', 'github.com',
-  // Education portals & SSO
-  'clever.com', 'classlink.com', 'powerschool.com', 'canvas.instructure.com',
-  'schoology.com', 'itslearning.com', 'blackboard.com', 'moodle.org',
-  'instructure.com', 'remind.com', 'seesaw.me', 'seesaw.com',
-  // Microsoft / Office
-  'office.com', 'microsoft.com', 'office365.com', 'onenote.com',
-  'teams.microsoft.com', 'sharepoint.com', 'microsofteducation.com', 'bing.com',
-  // Learning tools
-  'khanacademy.org', 'desmos.com', 'geogebra.org', 'quizlet.com',
-  'newsela.com', 'commonlit.org', 'readworks.org', 'noredink.com',
-  'duolingo.com', 'brainpop.com', 'scholastic.com', 'abcmouse.com',
-  'ck12.org', 'edpuzzle.com', 'nearpod.com', 'kahoot.com', 'kahoot.it',
-  'gimkit.com', 'blooket.com', 'quizizz.com', 'formative.com',
-  'flipgrid.com', 'padlet.com', 'wakelet.com', 'mentimeter.com',
-  'peardeck.com', 'socrative.com', 'polleverywhere.com', 'classkick.com',
-  'typing.com', 'typingclub.com', 'nitro-type.com', 'typeracer.com',
-  // Coding platforms
-  'replit.com', 'repl.it', 'codepen.io', 'glitch.com', 'glitch.me',
-  'codesandbox.io', 'scratch.mit.edu', 'code.org', 'studio.code.org',
-  'w3schools.com', 'developer.mozilla.org', 'stackoverflow.com',
-  'trinket.io', 'onlinegdb.com', 'ideone.com', 'jsfiddle.net',
-  'jsbin.com', 'tinkercad.com', 'csedweek.org',
-  // Reference / research
-  'wikipedia.org', 'britannica.com', 'wolframalpha.com', 'jstor.org',
-  'pubmed.ncbi.nlm.nih.gov', 'ncbi.nlm.nih.gov', 'census.gov',
-  'loc.gov', 'archives.gov', 'nasa.gov', 'weather.gov', 'usa.gov',
-  // Productivity & design
-  'canva.com', 'figma.com', 'notion.so', 'notion.site',
-  'loom.com', 'fliphtml5.com', 'prezi.com',
-  // Video / media (educational)
-  'pbslearningmedia.org', 'pbs.org', 'ted.com', 'nationalgeographic.com',
-  'smithsonianmag.com', 'biography.com',
-  // Libraries / books
-  'gutenberg.org', 'openstax.org', 'archive.org',
-  // Math / science tools
-  'mathway.com', 'symbolab.com', 'mathisfun.com', 'physicsclassroom.com',
-  'phet.colorado.edu',
-  // Fun-but-allowed
-  'coolmathgames.com', 'typing.io', 'lichess.org', 'chess.com',
+  'codehs.com','codehs.me',
+  'google.com','docs.google.com','drive.google.com','classroom.google.com',
+  'forms.google.com','sheets.google.com','slides.google.com','mail.google.com',
+  'sites.google.com','accounts.google.com','jamboard.google.com','scholar.google.com',
+  'github.io','github.com',
+  'clever.com','classlink.com','powerschool.com','canvas.instructure.com',
+  'schoology.com','itslearning.com','blackboard.com','moodle.org',
+  'instructure.com','remind.com','seesaw.me','seesaw.com',
+  'office.com','microsoft.com','office365.com','onenote.com',
+  'teams.microsoft.com','sharepoint.com','microsofteducation.com','bing.com',
+  'khanacademy.org','desmos.com','geogebra.org','quizlet.com',
+  'newsela.com','commonlit.org','readworks.org','noredink.com',
+  'duolingo.com','brainpop.com','scholastic.com','abcmouse.com',
+  'ck12.org','edpuzzle.com','nearpod.com','kahoot.com','kahoot.it',
+  'gimkit.com','blooket.com','quizizz.com','formative.com',
+  'flipgrid.com','padlet.com','wakelet.com','mentimeter.com',
+  'peardeck.com','socrative.com','polleverywhere.com','classkick.com',
+  'typing.com','typingclub.com','nitro-type.com','typeracer.com',
+  'replit.com','repl.it','codepen.io','glitch.com','glitch.me',
+  'codesandbox.io','scratch.mit.edu','code.org','studio.code.org',
+  'w3schools.com','developer.mozilla.org','stackoverflow.com',
+  'trinket.io','onlinegdb.com','ideone.com','jsfiddle.net','jsbin.com','tinkercad.com',
+  'wikipedia.org','britannica.com','wolframalpha.com','jstor.org',
+  'pubmed.ncbi.nlm.nih.gov','ncbi.nlm.nih.gov','census.gov',
+  'loc.gov','archives.gov','nasa.gov','weather.gov','usa.gov',
+  'canva.com','figma.com','notion.so','notion.site','loom.com','prezi.com',
+  'pbslearningmedia.org','pbs.org','ted.com','nationalgeographic.com',
+  'gutenberg.org','openstax.org',
+  'mathway.com','symbolab.com','mathisfun.com','physicsclassroom.com','phet.colorado.edu',
+  'coolmathgames.com','typing.io','lichess.org','chess.com',
 ];
 
-// Platforms that host both safe and unsafe content — status depends on specific URL
 const BUILTIN_MIXED = [
-  // CDN / cloud delivery
-  'cloudfront.net', 'amazonaws.com',
-  'azurewebsites.net', 'azureedge.net',
-  // App hosting platforms (student projects & random sites alike)
-  'netlify.app', 'vercel.app', 'pages.dev', 'workers.dev',
-  'web.app', 'firebaseapp.com', 'herokuapp.com',
-  'onrender.com', 'railway.app', 'fly.dev', 'surge.sh',
-  // CDN libraries
-  'jsdelivr.net', 'unpkg.com', 'cdnjs.cloudflare.com',
-  // Google user content
-  'googleusercontent.com', 'googlesyndication.com',
-  // URL shorteners
-  'bit.ly', 'tinyurl.com', 't.co', 'goo.gl', 'ow.ly', 'rb.gy', 'cutt.ly',
-  // Pastebin
-  'pastebin.com', 'hastebin.com',
-  // User-content wikis
-  'fandom.com', 'wikia.com', 'wikidot.com',
-  // Site builders
-  'wix.com', 'weebly.com', 'squarespace.com', 'webflow.io',
-  'wordpress.com', 'blogspot.com',
-  // File sharing
-  'dropbox.com', 'box.com',
+  'cloudfront.net','amazonaws.com',
+  'azurewebsites.net','azureedge.net',
+  'netlify.app','vercel.app','pages.dev','workers.dev',
+  'web.app','firebaseapp.com','herokuapp.com',
+  'onrender.com','railway.app','fly.dev','surge.sh',
+  'jsdelivr.net','unpkg.com','cdnjs.cloudflare.com',
+  'googleusercontent.com','googlesyndication.com',
+  'bit.ly','tinyurl.com','t.co','goo.gl','ow.ly','rb.gy','cutt.ly',
+  'pastebin.com','hastebin.com',
+  'fandom.com','wikia.com','wikidot.com',
+  'wix.com','weebly.com','squarespace.com','webflow.io',
+  'wordpress.com','blogspot.com',
+  'dropbox.com','box.com',
 ];
 
 const BUILTIN_BLOCKED = [
-  'youtube.com', 'youtu.be',
-  'reddit.com',
-  'twitter.com', 'x.com',
-  'tiktok.com',
-  'instagram.com',
-  'facebook.com', 'fb.com', 'messenger.com',
-  'snapchat.com',
-  'discord.com', 'discord.gg',
-  'twitch.tv',
-  'roblox.com',
-  'steampowered.com', 'steamcommunity.com',
-  'vk.com',
-  'tumblr.com',
-  'pinterest.com',
-  'kick.com',
-  '4chan.org',
-  '9gag.com',
-  'ifunny.co',
-  'chatgpt.com', 'chat.openai.com',
-  'character.ai',
-  'onlyfans.com',
-  'pornhub.com', 'xvideos.com', 'xnxx.com',
-  'bet365.com', 'draftkings.com', 'fanduel.com',
-  'miniclip.com', 'friv.com', 'y8.com', 'kizi.com', 'poki.com',
-  'unblocked.games', 'unblockedgames',
-  'vpn.', 'protonvpn', 'nordvpn', 'expressvpn',
+  'youtube.com','youtu.be','reddit.com',
+  'twitter.com','x.com','tiktok.com',
+  'instagram.com','facebook.com','fb.com','messenger.com',
+  'snapchat.com','discord.com','discord.gg',
+  'twitch.tv','roblox.com',
+  'steampowered.com','steamcommunity.com',
+  'vk.com','tumblr.com','pinterest.com','kick.com',
+  '4chan.org','9gag.com','ifunny.co',
+  'chatgpt.com','chat.openai.com','character.ai',
+  'onlyfans.com','pornhub.com','xvideos.com','xnxx.com',
+  'bet365.com','draftkings.com','fanduel.com',
+  'miniclip.com','friv.com','y8.com','kizi.com','poki.com',
+  'unblocked.games','unblockedgames',
+  'protonvpn','nordvpn','expressvpn',
 ];
 
-// ── Status detection ──────────────────────────────────────────────────────────
+// ── Detection ─────────────────────────────────────────────────────────────────
 function getCustomRules() {
   const parse = id => document.getElementById(id).value
     .split('\n').map(s => s.trim().toLowerCase()).filter(Boolean);
-  return {
-    unblocked: parse('customUnblocked'),
-    likely:    parse('customLikely'),
-    blocked:   parse('customBlocked'),
-  };
+  return { unblocked: parse('customUnblocked'), likely: parse('customLikely'), blocked: parse('customBlocked') };
 }
-
-function matchesAny(url, patterns) {
-  return patterns.some(p => url.includes(p));
-}
-
+function matchesAny(url, pats) { return pats.some(p => url.includes(p)); }
 function getLinkStatus(url) {
-  const h = url.toLowerCase();
-  const custom = getCustomRules();
-  // Custom rules always win
-  if (matchesAny(h, custom.unblocked)) return 'unblocked';
-  if (matchesAny(h, custom.blocked))   return 'blocked';
-  if (matchesAny(h, custom.likely))    return 'likely';
-  // Built-ins
-  if (matchesAny(h, BUILTIN_UNBLOCKED)) return 'unblocked';
-  if (matchesAny(h, BUILTIN_BLOCKED))   return 'blocked';
-  if (matchesAny(h, BUILTIN_MIXED))     return 'mixed';
-  return 'likely'; // unknown = possibly blocked
+  const h = url.toLowerCase(), c = getCustomRules();
+  if (matchesAny(h, c.unblocked))        return 'unblocked';
+  if (matchesAny(h, c.blocked))          return 'blocked';
+  if (matchesAny(h, c.likely))           return 'likely';
+  if (matchesAny(h, BUILTIN_UNBLOCKED))  return 'unblocked';
+  if (matchesAny(h, BUILTIN_BLOCKED))    return 'blocked';
+  if (matchesAny(h, BUILTIN_MIXED))      return 'mixed';
+  return 'likely';
 }
-
 function getCatStatus(links) {
-  const statuses = links.map(getLinkStatus);
-  const u = statuses.filter(s => s === 'unblocked').length;
-  const b = statuses.filter(s => s === 'blocked').length;
-  const m = statuses.filter(s => s === 'mixed').length;
-  const l2 = statuses.filter(s => s === 'likely').length;
-  if (u === statuses.length) return 'unblocked';
-  if (b === statuses.length) return 'blocked';
-  if (m === statuses.length) return 'mixed';
-  if (l2 === statuses.length) return 'likely';
+  const s = links.map(getLinkStatus);
+  const u = s.filter(x=>x==='unblocked').length, b = s.filter(x=>x==='blocked').length,
+        m = s.filter(x=>x==='mixed').length,     l = s.filter(x=>x==='likely').length;
+  if (u===s.length) return 'unblocked';
+  if (b===s.length) return 'blocked';
+  if (m===s.length) return 'mixed';
+  if (l===s.length) return 'likely';
   return 'mixed';
 }
 
 // ── State ─────────────────────────────────────────────────────────────────────
-let sortedData = {};
-let activeFilter = 'all';
+let sortedData = {}, activeFilter = 'all';
 
-// ── Link extraction ───────────────────────────────────────────────────────────
+// ── Extract ───────────────────────────────────────────────────────────────────
 function extractLinks(text) {
-  const urlRegex = /https?:\/\/[^\s"'<>()[\]]+/gi;
-  return [...new Set(text.match(urlRegex) || [])];
+  return [...new Set((text.match(/https?:\/\/[^\s"'<>()[\]]+/gi) || []))];
 }
 
-// ── Categorization ────────────────────────────────────────────────────────────
+// ── Categorize ────────────────────────────────────────────────────────────────
 function categorize(links) {
   const cats = {};
   for (const link of links) {
-    const lower = link.toLowerCase();
+    const lo = link.toLowerCase();
     let matched = false;
     for (const cat of CATEGORIES) {
-      if (cat.match(lower)) {
+      if (cat.match(lo)) {
         if (!cats[cat.id]) cats[cat.id] = { ...cat, links: [] };
         cats[cat.id].links.push(link);
-        matched = true;
-        break;
+        matched = true; break;
       }
     }
     if (!matched) {
       try {
-        const hostname = new URL(link).hostname.replace('www.', '');
-        const parts = hostname.split('.');
-        const rootDomain = (parts.length >= 3 && parts[parts.length - 2].length <= 3)
-          ? parts.slice(-3).join('.')
-          : parts.slice(-2).join('.');
-        const key = '__' + rootDomain;
-        if (!cats[key]) cats[key] = { id: key, label: rootDomain, icon: '🌐', links: [] };
+        const host = new URL(link).hostname.replace('www.','');
+        const parts = host.split('.');
+        const root = (parts.length>=3 && parts[parts.length-2].length<=3)
+          ? parts.slice(-3).join('.') : parts.slice(-2).join('.');
+        const key = '__'+root;
+        if (!cats[key]) cats[key] = { id: key, label: root, icon: '🌐', links: [] };
         cats[key].links.push(link);
-      } catch { }
+      } catch {}
     }
   }
   return cats;
@@ -398,36 +383,48 @@ const LINK_BADGES = {
 
 function esc(s) { return s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
+// Build the per-category copy buttons — only show buttons for statuses that exist in this cat
+function buildCatCopyBtns(cat) {
+  const counts = { unblocked:0, likely:0, blocked:0, mixed:0 };
+  cat.links.forEach(l => counts[getLinkStatus(l)]++);
+  const defs = [
+    { key:'all',       cls:'cat-cpy-all',       label:`📋 All (${cat.links.length})` },
+    { key:'unblocked', cls:'cat-cpy-unblocked',  label:`✅ (${counts.unblocked})` },
+    { key:'likely',    cls:'cat-cpy-likely',     label:`⚠️ (${counts.likely})` },
+    { key:'blocked',   cls:'cat-cpy-blocked',    label:`🚫 (${counts.blocked})` },
+    { key:'mixed',     cls:'cat-cpy-mixed',      label:`🔀 (${counts.mixed})` },
+  ];
+  return defs
+    .filter(d => d.key==='all' || counts[d.key] > 0)
+    .map(d => `<button class="cat-cpy ${d.cls}" onclick="copyCatByStatus(event,'${esc(cat.id)}','${d.key}')">${d.label}</button>`)
+    .join('');
+}
+
 function renderResults(data) {
   const results = document.getElementById('results');
-  const cats = Object.values(data).sort((a, b) => b.links.length - a.links.length);
-  if (!cats.length) {
-    results.innerHTML = '<div class="empty"><div class="big">😕</div>No links found</div>';
-    return;
-  }
+  const cats = Object.values(data).sort((a,b) => b.links.length - a.links.length);
+  if (!cats.length) { results.innerHTML = '<div class="empty"><div class="big">😕</div>No links found</div>'; return; }
   results.innerHTML = cats.map(cat => {
-    const catStatus = getCatStatus(cat.links);
+    const cs = getCatStatus(cat.links);
     return `
-    <div class="category-card" data-cat="${esc(cat.id)}" data-status="${catStatus}">
+    <div class="category-card" data-cat="${esc(cat.id)}" data-status="${cs}">
       <div class="category-header" onclick="toggleCat(this)">
         <div class="cat-left">
           <span class="cat-icon">${cat.icon}</span>
           <span class="cat-name">${esc(cat.label)}</span>
           <span class="cat-count">${cat.links.length}</span>
-          ${STATUS_BADGES[catStatus]}
+          ${STATUS_BADGES[cs]}
         </div>
         <div class="cat-right">
-          <button class="copy-cat-btn" onclick="copyCat(event,this)">📋 Copy</button>
+          <div class="cat-copy-group" onclick="event.stopPropagation()">${buildCatCopyBtns(cat)}</div>
           <span class="chevron">▾</span>
         </div>
       </div>
       <div class="link-list">
-        ${cat.links.map((l, i) => {
-          const ls = getLinkStatus(l);
-          const el = esc(l);
-          return `
-          <div class="link-item">
-            <span class="link-num">${i + 1}</span>
+        ${cat.links.map((l,i) => {
+          const ls = getLinkStatus(l), el = esc(l);
+          return `<div class="link-item">
+            <span class="link-num">${i+1}</span>
             ${LINK_BADGES[ls]}
             <a class="link-text" href="${el}" target="_blank" title="${el}">${el}</a>
             <button class="copy-link-btn" data-url="${el}" onclick="copyLinkBtn(this)">copy</button>
@@ -443,56 +440,66 @@ function sortLinks() {
   const raw = document.getElementById('linkInput').value;
   const links = extractLinks(raw);
   if (!links.length) { alert('No valid URLs found!'); return; }
-
   sortedData = categorize(links);
   renderResults(sortedData);
 
-  let nU = 0, nB = 0, nL = 0;
-  let nM = 0;
-  links.forEach(l => { const s = getLinkStatus(l); if (s==='unblocked') nU++; else if (s==='blocked') nB++; else if (s==='mixed') nM++; else nL++; });
-  const rawCount = raw.match(/https?:\/\/[^\s"'<>()[\]]+/gi)?.length || 0;
-  const dupes = rawCount - links.length;
+  let nU=0, nB=0, nL=0, nM=0;
+  links.forEach(l => { const s=getLinkStatus(l); if(s==='unblocked') nU++; else if(s==='blocked') nB++; else if(s==='mixed') nM++; else nL++; });
+  const dupes = (raw.match(/https?:\/\/[^\s"'<>()[\]]+/gi)?.length||0) - links.length;
 
-  const statsRow = document.getElementById('statsRow');
-  statsRow.style.display = 'flex';
-  statsRow.innerHTML = `
+  const sr = document.getElementById('statsRow');
+  sr.style.display='flex';
+  sr.innerHTML=`
     <div class="stat-pill">Total: <span class="sp-purple">${links.length}</span></div>
     <div class="stat-pill">Categories: <span class="sp-purple">${Object.keys(sortedData).length}</span></div>
     <div class="stat-pill">✅ Unblocked: <span class="sp-green">${nU}</span></div>
     <div class="stat-pill">⚠️ Possibly Blocked: <span class="sp-yellow">${nL}</span></div>
-    <div class="stat-pill">🔀 Mixed/CDN: <span style="color:#94a3b8;font-weight:700">${nM}</span></div>
-    <div class="stat-pill">🚫 Likely Blocked: <span class="sp-red">${nB}</span></div>
-    ${dupes ? `<div class="stat-pill">Dupes removed: <span class="sp-purple">${dupes}</span></div>` : ''}
+    <div class="stat-pill">🚫 Blocked: <span class="sp-red">${nB}</span></div>
+    <div class="stat-pill">🔀 Mixed/CDN: <span style="color:#818cf8;font-weight:700">${nM}</span></div>
+    ${dupes?`<div class="stat-pill">Dupes removed: <span class="sp-purple">${dupes}</span></div>`:''}
   `;
-  document.getElementById('legendRow').style.display = 'flex';
-  document.getElementById('filterBar').style.display = 'flex';
-  document.getElementById('searchBar').style.display = 'block';
-  activeFilter = 'all';
-  updateFilterBtns();
+  ['legendRow','filterBar','copyStatusBar'].forEach(id => document.getElementById(id).style.display='flex');
+  document.getElementById('searchBar').style.display='block';
+  activeFilter='all'; updateFilterBtns();
 }
 
-// ── Filters ───────────────────────────────────────────────────────────────────
-function setFilter(f) { activeFilter = f; updateFilterBtns(); applyFilters(); }
+// ── Copy by status ────────────────────────────────────────────────────────────
+function copyByStatus(status) {
+  const allLinks = Object.values(sortedData).flatMap(c => c.links);
+  const filtered = status==='all' ? allLinks : allLinks.filter(l => getLinkStatus(l)===status);
+  if (!filtered.length) { toast('No links with that status!'); return; }
+  navigator.clipboard.writeText(filtered.join('\n'));
+  const labels = { all:'All links', unblocked:'✅ Unblocked links', likely:'⚠️ Possibly Blocked links', blocked:'🚫 Blocked links', mixed:'🔀 Mixed/CDN links' };
+  toast(`Copied ${filtered.length} ${labels[status]||'links'}!`);
+}
 
+function copyCatByStatus(e, catId, status) {
+  e.stopPropagation();
+  const cat = sortedData[catId];
+  if (!cat) return;
+  const links = status==='all' ? cat.links : cat.links.filter(l => getLinkStatus(l)===status);
+  if (!links.length) { toast('No links with that status in this category!'); return; }
+  navigator.clipboard.writeText(links.join('\n'));
+  toast(`Copied ${links.length} link${links.length!==1?'s':''}!`);
+}
+
+// ── Filter & search ───────────────────────────────────────────────────────────
+function setFilter(f) { activeFilter=f; updateFilterBtns(); applyFilters(); }
 function updateFilterBtns() {
-  const map = { 'f-all':'all', 'f-unblocked':'unblocked', 'f-likely':'likely', 'f-blocked':'blocked', 'f-mixed':'mixed' };
+  const map = { 'f-all':'all','f-unblocked':'unblocked','f-likely':'likely','f-blocked':'blocked','f-mixed':'mixed' };
   document.querySelectorAll('.filter-btn').forEach(btn => {
-    for (const [cls, val] of Object.entries(map)) {
-      if ([...btn.classList].includes(cls)) btn.classList.toggle('inactive', activeFilter !== val);
-    }
+    for (const [cls,val] of Object.entries(map))
+      if ([...btn.classList].includes(cls)) btn.classList.toggle('inactive', activeFilter!==val);
   });
 }
-
 function applyFilters() {
   const q = document.getElementById('searchBar').value.toLowerCase();
   document.querySelectorAll('.category-card').forEach(card => {
-    const catId = card.dataset.cat;
-    const cat = sortedData[catId];
+    const cat = sortedData[card.dataset.cat];
     if (!cat) return;
-    const catStatus = getCatStatus(cat.links);
-    const statusPass = activeFilter === 'all'
-      || catStatus === activeFilter
-      || (catStatus === 'mixed' && cat.links.some(l => getLinkStatus(l) === activeFilter));
+    const cs = getCatStatus(cat.links);
+    const statusPass = activeFilter==='all' || cs===activeFilter
+      || (cs==='mixed' && cat.links.some(l => getLinkStatus(l)===activeFilter));
     const searchPass = !q || cat.label.toLowerCase().includes(q) || cat.links.some(l => l.toLowerCase().includes(q));
     card.style.display = (statusPass && searchPass) ? '' : 'none';
   });
@@ -503,49 +510,30 @@ function toggleCat(header) {
   const list = header.parentElement.querySelector('.link-list');
   header.classList.toggle('collapsed', list.classList.toggle('hidden'));
 }
-
-function copyCat(e, btn) {
-  e.stopPropagation();
-  const catId = btn.closest('.category-card').dataset.cat;
-  navigator.clipboard.writeText((sortedData[catId]?.links || []).join('\n'));
-  btn.textContent = '✓ Copied!';
-  setTimeout(() => btn.textContent = '📋 Copy', 1500);
-}
-
 function copyLinkBtn(btn) {
   navigator.clipboard.writeText(btn.dataset.url);
-  btn.textContent = '✓';
-  setTimeout(() => btn.textContent = 'copy', 1500);
+  btn.textContent='✓'; setTimeout(()=>btn.textContent='copy',1500);
 }
-
-function copyAll() {
-  const all = Object.values(sortedData)
-    .sort((a,b) => b.links.length - a.links.length)
-    .map(cat => `=== ${cat.label} (${cat.links.length}) ===\n${cat.links.join('\n')}`)
-    .join('\n\n');
-  if (!all) { alert('Sort some links first!'); return; }
-  navigator.clipboard.writeText(all);
-  const btn = document.getElementById('copyAllBtn');
-  btn.textContent = '✓ Copied!';
-  setTimeout(() => btn.textContent = '📋 Copy All Sorted', 1500);
-}
-
 function clearAll() {
-  document.getElementById('linkInput').value = '';
-  document.getElementById('results').innerHTML = '<div class="empty"><div class="big">🔗</div>Paste some links and hit Sort!</div>';
-  ['statsRow','legendRow','filterBar','searchBar'].forEach(id => {
-    const el = document.getElementById(id);
-    el.style.display = 'none';
-    if (el.tagName === 'INPUT') el.value = '';
+  document.getElementById('linkInput').value='';
+  document.getElementById('results').innerHTML='<div class="empty"><div class="big">🔗</div>Paste some links and hit Sort!</div>';
+  ['statsRow','legendRow','filterBar','searchBar','copyStatusBar'].forEach(id => {
+    const el=document.getElementById(id); el.style.display='none';
+    if(el.tagName==='INPUT') el.value='';
   });
-  sortedData = {};
+  sortedData={};
 }
-
 function toggleRules() {
-  const panel = document.getElementById('rulesPanel');
-  const open = panel.style.display !== 'block';
-  panel.style.display = open ? 'block' : 'none';
-  document.getElementById('rulesToggleBtn').textContent = open ? '✕ Close Rules' : '⚙️ Custom Rules';
+  const p=document.getElementById('rulesPanel'), open=p.style.display!=='block';
+  p.style.display=open?'block':'none';
+  document.getElementById('rulesToggleBtn').textContent=open?'✕ Close Rules':'⚙️ Custom Rules';
+}
+let toastTimer;
+function toast(msg) {
+  const el=document.getElementById('toast');
+  el.textContent=msg; el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>el.classList.remove('show'),2200);
 }
 </script>
 </body>
